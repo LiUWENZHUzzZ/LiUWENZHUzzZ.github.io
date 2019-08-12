@@ -1,0 +1,307 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LiUWENZHUzzZ on LiUWENZHUzzZ</title>
+    <link>https://liuwenzhuzzz.xyz/</link>
+    <description>Recent content in LiUWENZHUzzZ on LiUWENZHUzzZ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 01 Aug 2019 00:27:23 +0000</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>初识Git--最先进的分布式版本控制系统(一)</title>
+      <link>https://liuwenzhuzzz.xyz/2019/2/</link>
+      <pubDate>Thu, 01 Aug 2019 00:27:23 +0000</pubDate>
+      
+      <guid>https://liuwenzhuzzz.xyz/2019/2/</guid>
+      <description>
+
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/08/01/5d428c8e796ab14725.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;学习git的起因&#34;&gt;学习Git的起因&lt;/h3&gt;
+
+&lt;p&gt;&amp;emsp;个人想深入地系统地学习Git,主要原因并不是追求分布式版本控制,而是在我的博客部署和备份时因为不熟悉Git遇到了很多问题,需要用到的东西就系统地学是我多年来的习惯,暂不咎其利弊,这种方式让我在学习道路上成长了不少,我觉得并不是不可行的&lt;/p&gt;
+
+&lt;p&gt;&amp;emsp;以下就是我的学习过程和其中一些个人的理解&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;初识-最先进的分布式版本控制系统&#34;&gt;初识&amp;mdash;最先进的分布式版本控制系统&lt;/h3&gt;
+
+&lt;p&gt;&amp;emsp;Git是目前世界上最先进的分布式版本控制系统(没有之一),而版本控制系统就是你发布软件新版本时可以吃的后悔药,至于分布式我的理解还比较浅,只知道分布式相比集中式更加便捷&lt;/p&gt;
+
+&lt;p&gt;&amp;emsp;从手动管理多个“版本”到版本控制,几乎是质的改变&lt;/p&gt;
+
+&lt;h3 id=&#34;我个人浅显的理解&#34;&gt;我个人浅显的理解&lt;/h3&gt;
+
+&lt;p&gt;&amp;emsp;我们可以把版本控制系统比作一条流水线&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/08/01/5d42476f1be1164593.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;emsp;工作区就是一个生产车间,暂存区就是一辆车,版本库就是一个贮藏仓库&lt;/p&gt;
+
+&lt;h3 id=&#34;一切的开始-创建新的版本库&#34;&gt;一切的开始&amp;mdash;创建新的版本库&lt;/h3&gt;
+
+&lt;p&gt;&amp;emsp;Git操作的对象是版本库,所以一切的前提都是你要有一个版本库,那么如何新建一个版本库呢?&lt;/p&gt;
+
+&lt;p&gt;&amp;emsp;进入你想要创建版本库的目录执行以下命令,就在该目录下新建了一个版本库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ git init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;emsp;当然,在你不想使用的时候可以删除此版本库&lt;/p&gt;
+
+&lt;p&gt;&amp;emsp;你只需要在&lt;code&gt;版本库的根目录&lt;/code&gt;下执行这条命令即可&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ rm -rf .git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;emsp;即删除版本库根目录下的.git/目录即可&lt;/p&gt;
+
+&lt;h3 id=&#34;git最基本的操作-add和commit&#34;&gt;Git最基本的操作&amp;mdash;add和commit&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;git add&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;emsp;生产车间生产出一批新产品后,需要将这些产品放入运输车,才能送到仓库,而这里产品从车间到运输车的过程就是git add&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ git add &amp;lt;path&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;emsp;通常是通过 &lt;code&gt;git add &amp;lt;path&amp;gt;&lt;/code&gt;的形式把&lt;path&gt;添加到索引库中,&lt;path&gt;可以是文件也可以是目录&lt;/p&gt;
+
+&lt;p&gt;&amp;emsp;Git不仅能判断出&lt;path&gt;中修改(不包括已删除)的文件,还能判断出新添的文件,并把它们的信息添加到索引库中&lt;/p&gt;
+
+&lt;p&gt;&amp;emsp;还有一些&lt;code&gt;git add&lt;/code&gt;命令常用的参数&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ git add .
+#将所有修改添加到暂存区
+$ git add -u
+#只添加暂存区已有的文件(包括删除操作)但不添加新增的文件
+$ git add -A
+$ git add -all
+#这两条命令等同于git add .
+$ git add -f &amp;lt;fileName&amp;gt;
+#强制添加某个文件,不管.gitignore是否包含此文件
+$ git add -p
+#进入交互模式,指定哪些修改需要添加到暂存区
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;git commit&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;emsp;产品装到运输车以后,需要运送到贮藏仓库,每运一次都会在仓库的记录表上添加一行,这个过程就是git commit&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ git commit -m &amp;quot;提交信息&amp;quot;
+#直接输入提交信息,而不调用vim编辑器
+$ git commit -a -m &amp;quot;提交信息&amp;quot;
+#提交所有修改或删除的文件(包括不在暂存区的文件)
+$ git commit --amend
+#把文件追加到上次提交的内容里
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#34;https://i.loli.net/2019/08/01/5d425c3b482f497103.png&#34; alt=&#34;&#34; /&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;emsp;至此,应该会对Git和分布式版本管理有初步的了解,并且可以在日常工作中简单使用Git了&lt;/p&gt;
+
+&lt;p&gt;&amp;emsp; &lt;strong&gt;未完待续~~&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://liuwenzhuzzz.xyz/about/about/</link>
+      <pubDate>Wed, 31 Jul 2019 12:03:20 +0000</pubDate>
+      
+      <guid>https://liuwenzhuzzz.xyz/about/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Termux下搭建Hexo博客部署到GithubPages并绑定域名</title>
+      <link>https://liuwenzhuzzz.xyz/2019/1/</link>
+      <pubDate>Wed, 31 Jul 2019 11:42:15 +0000</pubDate>
+      
+      <guid>https://liuwenzhuzzz.xyz/2019/1/</guid>
+      <description>
+
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/07/31/5d4153b4d9d2f37392.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;准备工作&#34;&gt;准备工作&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;下载并安装Termux&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;emsp;可以去&lt;a href=&#34;https://termux.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Termux官网&lt;/a&gt;或者&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.termux&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;GooglePlay链接&lt;/a&gt;或者&lt;a href=&#34;https://www.coolapk.com/apk/com.termux&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;酷安链接&lt;/a&gt;下载(建议下载官网或play版本,酷安的版本较旧),联网后打开Termux会自动下载并安装核心运行环境(此过程需要科学上网！！！没有梯子的话可以在&lt;a href=&#34;https://www.tankecloud.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;TankeCloud官网&lt;/a&gt;注册免费使用三天),请耐心等待&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;更新软件源及安装所需的软件包&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ pkg update
+$ pkg install git openssh nodejs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;安装hexo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ npm install hexo-cli -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;一个GitHub账号&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;emsp;没有可以去&lt;a href=&#34;https://github.com/join?source=header-home&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;注册&lt;/a&gt;,新建一个名为 &lt;code&gt;你的Github用户名.github.io&lt;/code&gt; 的repo&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;购买域名(选做)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;emsp;博主是在在腾讯云购买的域名,在其他网站购买的域名操作和腾讯云类似,这里就只以腾讯云为例说明,购买域名之后,腾讯云提供免费的域名解析服务(没有兴趣绑定个人域名的机油可以省下这笔钱,忽略这部分内容即可)&lt;/p&gt;
+
+&lt;h3 id=&#34;搭建博客框架&#34;&gt;搭建博客框架&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在你希望的目录下创建博客站点目录(以根目录下创建为例)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ mkdir -p ~/blog
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;初始化博客站点目录&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ hexo init ~/blog
+$ cd ~/blog
+$ npm install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;emsp;这时你的博客框架就已经搭建好了&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在本地预览初步搭建完成的Hexo博客框架&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ hexo clean
+$ hexo generate
+$ hexo server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;emsp;执行完毕后你就可以在浏览器中输入localhost:4000预览你的博客了&lt;/p&gt;
+
+&lt;h3 id=&#34;将博客部署到github&#34;&gt;将博客部署到Github&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;首先在站点目录安装插件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ npm install hexo-deployer-git --save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在站点配置文件_config.yml的Deployment字段处添加并修改&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;deploy:
+  type: git
+  repo: git@github.com:username/username.github.io.git
+  branch: master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;emsp;特别需要注意的是 &lt;strong&gt;①配置文件是yml格式需要遵循yaml语法,冒号后必须有一个空格&lt;/strong&gt;  &lt;strong&gt;②repo后的username全部换成你的Github用户名&lt;/strong&gt;  &lt;strong&gt;③第一行顶格,后面每一行都缩进2个空格&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;为Github账号创建登录验证所需的ssh密钥对&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ git config --global user.name 你的GitHub用户名
+$ git config --global user.email 你的GitHub邮箱
+$ ssh-keygen -t rsa -C 你的GitHub邮箱
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;emsp;这时在~/.ssh目录下已经生成了id_rsa(私钥文件)和id_rsa.pub(公钥文件)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;将公钥文件关联到Github&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;emsp;复制~/.ssh/id_rsa.pub文件的全部内容,在Github中 &lt;code&gt;点击头像旁小三角形→设置→SSH和GPG密钥&lt;/code&gt; ,将内容粘贴到大框里,title是你随便给这个公钥起的名字&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/07/31/5d41548dc7ba033016.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;添加本地私钥文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ cd ~/.ssh
+$ eval `ssh-agent -s`
+$ ssh-add id_rsa
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;emsp;此时你的博客已经与GitHubPages建立好了联系&lt;/p&gt;
+
+&lt;h3 id=&#34;日常使用博客&#34;&gt;日常使用博客&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;写博客&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ hexo new 文章的名字
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;emsp;此时会在~/blog/source/_post目录下生成一个 &lt;code&gt;文章名字.md&lt;/code&gt;的博客文件 ,然后使用vim或其它编辑器对你的文章做修改&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;删博客&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;emsp;删除~/blog/source/_post目录下对应的博客文件就OK了&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;把博客同步到GithubPages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ hexo clean
+$ hexo deploy -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;emsp;这时你使用浏览器访问 &lt;code&gt;你的用户名.github.io&lt;/code&gt; ,就会发现你在本地写的博客已经同步到GithubPages了&lt;/p&gt;
+
+&lt;h3 id=&#34;绑定个人域名&#34;&gt;绑定个人域名&lt;/h3&gt;
+
+&lt;p&gt;&amp;emsp;使用GithubPages的二级域名总是让人有种寄人篱下的不适感,所以这步就简单说明一下绑定个人域名的过程&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;使用腾讯云提供的免费解析服务解析你购买的域名&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;添加CNAME&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;emsp;在~/blog/source目录下新建名为CNAME的文件(这个文件是没有扩展名的),使用vim或其它编辑器在里面添加内容:你需要绑定的域名,然后使用前文提到的方法把博客同步到GithubPages&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;添加解析记录&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;emsp;添加解析记录 记录类型CNAME 主机记录@ 记录值填 &lt;code&gt;你的Github用户名.github.io&lt;/code&gt;  点击保存即可&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/07/31/5d41550c6343a99513.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用个人域名访问博客&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;emsp;现在在浏览器输入你的个人域名就能直接访问你搭建的博客了&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

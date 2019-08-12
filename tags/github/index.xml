@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github on LiUWENZHUzzZ</title>
+    <link>https://liuwenzhuzzz.xyz/tags/github/</link>
+    <description>Recent content in github on LiUWENZHUzzZ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 31 Jul 2019 11:42:15 +0000</lastBuildDate>
+    
+	<atom:link href="https://liuwenzhuzzz.xyz/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Termux下搭建Hexo博客部署到GithubPages并绑定域名</title>
+      <link>https://liuwenzhuzzz.xyz/2019/1/</link>
+      <pubDate>Wed, 31 Jul 2019 11:42:15 +0000</pubDate>
+      
+      <guid>https://liuwenzhuzzz.xyz/2019/1/</guid>
+      <description>准备工作 下载并安装Termux &amp;emsp;可以去Termux官网或者GooglePlay链接或者酷安链接下载(建议下载官网或play版本,酷</description>
+    </item>
+    
+  </channel>
+</rss>
